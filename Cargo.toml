@@ -1,0 +1,24 @@
+[package]
+name = "lighthouse-groupie"
+version = "0.1.0"
+edition = "2021"
+authors = ["Joel Roxell joel.roxell@polestar.com"]
+license = "MIT"
+description = "CLI tool that make it easier to perform multiple lighthouse runs towards a single target and output the result in a \"plotable\" format."
+readme = "README.md"
+keywords = ["cli", "lighthouse", "aggregate"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+structopt = "0.3.25"
+anyhow = "1.0"
+log = "0.4.0"
+env_logger = "0.8.4"
+assert_cmd = "2.0.2"
+predicates = "2.1.0"
+chrono = "0.4"
+url = "2.2.2"
+dirs = "4.0.0"
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+indicatif = "0.16.2"
