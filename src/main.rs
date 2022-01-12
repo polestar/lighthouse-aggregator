@@ -3,7 +3,7 @@ use core::panic;
 use dirs::home_dir;
 use indicatif::{ProgressBar, ProgressStyle};
 use lighthouse_aggregator::{create_result_aggregate, run_lighthouse};
-use log::{debug, error};
+use log::{self, debug, error};
 use std::fs::File;
 use std::io;
 use std::io::Write;
@@ -19,22 +19,22 @@ use url::Url;
 ///
 #[derive(StructOpt, Debug)]
 struct Cli {
-    /// The target site to test.
+    /// The target site to test
     target: String,
 
-    /// Additional headers that will be added to each request.
+    /// Additional headers that will be added to each request
     #[structopt(short, long)]
     headers: Option<String>,
 
-    /// The number of runs that should be performed against the target.
+    /// The number of runs that should be performed against the target
     #[structopt(short, long, default_value = "30")]
     count: usize,
 
-    /// Aggregate output path.
+    /// Aggregate output path
     #[structopt(short, long)]
     output: Option<String>,
 
-    /// Ignore scoring and other assets that usually stay static between runs.
+    /// Ignore scoring and other assets that usually stay static between runs
     #[structopt(short, long)]
     timings_only: bool,
 }
@@ -78,7 +78,7 @@ fn main() -> Result<()> {
 
     for i in 0..args.count {
         let filepath = match run_lighthouse(&app_dir, domain, &target, i) {
-            Ok(o) => o,
+            Ok(filepath) => filepath,
             Err(err) => {
                 error!("{}", err);
                 process::exit(1);
@@ -86,7 +86,6 @@ fn main() -> Result<()> {
         };
 
         result_files.push(filepath);
-
         loader.inc(1);
     }
 

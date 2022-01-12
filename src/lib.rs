@@ -38,7 +38,7 @@ pub fn run_lighthouse(
             "Running lighthouse itr={} for target={}, writing to file={}",
             id,
             target,
-            filepath.to_str().unwrap()
+            filepath.to_str().unwrap(),
         )
     );
 
