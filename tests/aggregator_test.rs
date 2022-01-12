@@ -9,7 +9,7 @@ fn test_aggregator() {
         format!("{}/google-score-test-2.json", test_dir),
     ];
     let aggregate =
-        lighthouse_groupie::create_result_aggregate("test", test_result_files, false).unwrap();
+        lighthouse_aggregator::create_result_aggregate("test", test_result_files, false).unwrap();
 
     let r = &aggregate["bestPractices"];
 

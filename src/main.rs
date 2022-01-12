@@ -2,7 +2,7 @@ use anyhow::Result;
 use core::panic;
 use dirs::home_dir;
 use indicatif::{ProgressBar, ProgressStyle};
-use lighthouse_groupie::{create_result_aggregate, run_lighthouse};
+use lighthouse_aggregator::{create_result_aggregate, run_lighthouse};
 use log::{debug, error};
 use std::fs::File;
 use std::io;

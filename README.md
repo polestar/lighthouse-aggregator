@@ -1,4 +1,4 @@
-# Lighthouse Groupie
+# Lighthouse Aggregator
 
 CLI tool that make it easier to perform multiple lighthouse runs towards a single target and output the result
 in a "plotable" format.
@@ -14,7 +14,7 @@ Building from source requires `rust >=1.56.0` to be installed.
 
 ## Example
 
-1. run the command `lighthouse-groupie https://www.google.se -t -c 3 > aggregate.json`
+1. run the command `lighthouse-aggregator https://www.google.se -t -c 3 -o aggregate.json`
 2. read the result `cat aggregate.json`
 
 > All values are in ms.
